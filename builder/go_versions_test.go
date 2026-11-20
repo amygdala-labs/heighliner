@@ -28,6 +28,16 @@ func TestGoVersions(t *testing.T) {
 	require.Equal(t, "1.21.13-alpine3.20", goVer.Image)
 	require.Equal(t, "3.20", goVer.AlpineVersion)
 
+	goVer = builder.GetImageAndVersionForGoVersion("1.26", "")
+	require.Equal(t, "1.26.11", goVer.Version)
+	require.Equal(t, "1.26.11-alpine3.23", goVer.Image)
+	require.Equal(t, "3.23", goVer.AlpineVersion)
+
+	goVer = builder.GetImageAndVersionForGoVersion("1.27", "")
+	require.Equal(t, "1.27.4", goVer.Version)
+	require.Equal(t, "1.27.4-alpine3.23", goVer.Image)
+	require.Equal(t, "3.23", goVer.AlpineVersion)
+
 	goVer = builder.GetImageAndVersionForGoVersion("unknown", "")
 	require.Equal(t, builder.GoDefaultVersion, goVer.Version)
 	require.Equal(t, builder.GoDefaultImage, goVer.Image)

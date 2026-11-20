@@ -17,6 +17,8 @@ const (
 	Go123Version = "1.23.12"
 	Go124Version = "1.24.13"
 	Go125Version = "1.25.7"
+	Go126Version = "1.26.11"
+	Go127Version = "1.27.4"
 	// ADD NEW GO VERSION [1] - latest patch release for each major/minor
 
 	// When updating alpine image, ensure all golang build image combinations below exist
@@ -25,7 +27,7 @@ const (
 
 var (
 	// ADD NEW GO VERSION [3] - update GoDefaultVersion to latest; GoDefaultImage is set from map in init()
-	GoDefaultVersion = Go125Version
+	GoDefaultVersion = Go127Version
 	GoDefaultImage   string // default image for cosmos go builds if go.mod parse fails
 )
 
@@ -57,6 +59,8 @@ var GoImageForVersion = map[string]GoVersion{
 	"1.23": {Version: Go123Version, AlpineVersion: "3.22"},
 	"1.24": {Version: Go124Version, AlpineVersion: LatestAlpineImageVersion},
 	"1.25": {Version: Go125Version, AlpineVersion: LatestAlpineImageVersion},
+	"1.26": {Version: Go126Version, AlpineVersion: LatestAlpineImageVersion},
+	"1.27": {Version: Go127Version, AlpineVersion: LatestAlpineImageVersion},
 	// ADD NEW GO VERSION [4]
 }
 
